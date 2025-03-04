@@ -1,3 +1,5 @@
+Credit goes to ChatGPT, powerful coding assistant :D
+
 This repo provide an S3 proxy in the form of container, providing
 - no authentication to upload/download S3 object
 - S3 proxy will perform authentication against S3 endpoint
