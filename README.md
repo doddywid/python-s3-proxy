@@ -4,5 +4,16 @@ This repo provide an S3 proxy in the form of container, providing
 
 This container may be useful in certain use case like if you want to load document in your private S3 bucket for your RAG system, supporting simple API call without authentication.
 
-Build the container with this command
-#docker build -t s3-proxy .
+Build the container with this command <br>
+`#docker build -t s3-proxy .`
+<br>
+<br>
+Curl example for each function
+- List files: <br>
+`curl -X GET "http://localhost:5001/list"`
+- Upload file: <br>
+`curl -X POST http://localhost:5001/upload -F "file=@/location/yourfile.txt"`
+- Download file: <br>
+`curl -X GET "http://localhost:5001/download?filename=yourfile.txt" -o yourfile_downloaded.txt`
+- Delete file: <br>
+`curl -X DELETE "http://localhost:5001/delete?filename=yourfile.txt"`
