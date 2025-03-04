@@ -1,14 +1,27 @@
-# Use an official lightweight Python image
+# === Stage 1: Builder Stage ===
+FROM python:3.9-slim AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy only requirements file first to leverage caching
+COPY requirements.txt .
+
+# Install dependencies in a virtual environment
+RUN python -m venv /venv && /venv/bin/pip install --no-cache-dir -r requirements.txt
+
+# === Stage 2: Final Lightweight Image ===
 FROM python:3.9-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy application files
-COPY s3_proxy.py requirements.txt ./
+# Copy only necessary files from the builder stage
+COPY --from=builder /venv /venv
+COPY s3_proxy.py ./
 
-# Install dependencies
-RUN pip install -r requirements.txt
+# Use the pre-installed virtual environment
+ENV PATH="/venv/bin:$PATH"
 
 # Expose the API port
 EXPOSE 5001
