@@ -9,8 +9,7 @@ __Steps:__
 `#docker build -t s3-proxy .`
 2. Update values in environment file (.env)
 3. Perform API call
-<br>
-Curl example for each function
+
 - List files: <br>
 `curl -X GET "http://localhost:5001/list"`
 - Upload file: <br>
