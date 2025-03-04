@@ -1,1 +1,1 @@
-docker run -dit --restart always  --name s3-proxy -e S3_ACCESS_KEY=<your-s3-access-key> -e S3_SECRET_KEY=<your-s3-secret-key> -e S3_ENDPOINT_URL=https://<your-s3-endpoint> -e S3_REGION_NAME=<your-s3-region-name> -e S3_BUCKET_NAME=<your-s3-bucket-name> -p 5001:5001 s3-proxy:v2
+docker run -dit --restart always  --name s3-proxy -e S3_ACCESS_KEY=<your-s3-access-key> -e S3_SECRET_KEY=<your-s3-secret-key> -e S3_ENDPOINT_URL=https://<your-s3-endpoint> -e S3_REGION_NAME=<your-s3-region-name> -e S3_BUCKET_NAME=<your-s3-bucket-name> -p 5001:5001 s3-proxy
